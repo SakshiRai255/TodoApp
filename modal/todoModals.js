@@ -1,16 +1,22 @@
 const mongoose = require("mongoose")
 
-const todoModel = new mongoose.Schema({
+const todoModal = new mongoose.Schema({
     title: {
         type: String,
-        required: [true,"title is required"],
+        require: [true,"title is required"],
         maxlength: [200,"Your maximum length is 200"],
         trim :true,
     },
-    // task : [String],
+    task:{
+        type: [String],
+        isCompleted: {
+            type: Boolean,
+            default: false,
+        },
+    }
   }, {
         timestamps: true
     }
 );
 
-module.exports = mongoose.model("todo",todoModel);
+module.exports = mongoose.model("Todo",todoModal);
